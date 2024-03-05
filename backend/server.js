@@ -1,12 +1,14 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
+import path from "path";
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
-import authRoutes from './router/auth.routes.js';
-import messagesRoutes from './message/auth.routes.js';
-import userRouter from './routes/user.routes.js';
+import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
-import connectToMongoDB from './db/connectToMongoDB.js';
+import connectToMongoDB from "./db/connectToMongoDB.js";
+// import { app, server } from "./socket/socket.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,8 +19,8 @@ app.use(express.json()); //to parse the incoming request with JSON payloads(from
 app.use(cookieParser());
 
 app.use('/api/auth',authRoutes);
-app.use('/api/message',messagesRoutes);
-app.use('/api/user',userRouter);
+app.use('/api/message',messageRoutes);
+app.use('/api/users',userRoutes);
 
 // app.get('/', (req, res) => {
 //     res.send('Hello World');    

@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import User from "../models/users.models.js";
+import User from "../models/users.model.js";
 import generateTokenAndSetCookies from '../utils/generateToken.js';
 
 export const signup = async (req, res) => {
