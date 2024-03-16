@@ -2,15 +2,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import { extractTime } from "../../utils/extractTime";
 import useConversation from "../../zustand/useConversation";
 
-import PropTypes from 'prop-types';
-
 const Message = ({ message }) => {
-    // component code here
-};
-
-Message.propTypes = {
-    message: PropTypes.object.isRequired,
-};
 	const { authUser } = useAuthContext();
 	const { selectedConversation } = useConversation();
 	const fromMe = message.senderId === authUser._id;
